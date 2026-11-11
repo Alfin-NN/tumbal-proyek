@@ -284,7 +284,7 @@ class ProfilePage extends StatelessWidget {
                       InfoTile(
                         icon: Icons.code,
                         label: 'Keahlian Lain',
-                        value: 'PHP, Web Dev & OOP',
+                        value: 'Modder Game',
                       ),
                       InfoTile(
                         icon: Icons.sports_esports,
