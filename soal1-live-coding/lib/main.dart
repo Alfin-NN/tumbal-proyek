@@ -65,7 +65,7 @@ class DashboardPage extends StatelessWidget {
           children: [
             const UserAccountsDrawerHeader(
               accountName: Text('Azkia Alfin Zulfikar'),
-              accountEmail: Text('azkiaalfinzulfikar@gmail.com'),
+              accountEmail: Text('azkiaalfin@gmail.com'),
               currentAccountPicture: CircleAvatar(
                 child: Icon(Icons.person, size: 40),
               ),
@@ -185,7 +185,7 @@ class ProfilePage extends StatelessWidget {
           children: [
             const UserAccountsDrawerHeader(
               accountName: Text('Azkia Alfin Zulfikar'),
-              accountEmail: Text('azkiaalfinzulfikar@gmail.com'),
+              accountEmail: Text('azkiaalfin@gmail.com'),
               currentAccountPicture: CircleAvatar(
                 child: Icon(Icons.person, size: 40),
               ),
@@ -249,12 +249,12 @@ class ProfilePage extends StatelessWidget {
                       InfoTile(
                         icon: Icons.email,
                         label: 'Email',
-                        value: 'azkiaalfinzulfikar@gmail.com',
+                        value: 'azkiaalfin@gmail.com',
                       ),
                       InfoTile(
                         icon: Icons.phone,
                         label: 'Nomor HP',
-                        value: '081234567890',
+                        value: '0895364418878',
                       ),
                       InfoTile(
                         icon: Icons.class_,
