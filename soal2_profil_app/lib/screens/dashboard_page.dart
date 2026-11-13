@@ -35,6 +35,12 @@ class DashboardPage extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(height: 16),
+          ElevatedButton.icon(
+            onPressed: () => Navigator.pushNamed(context, '/profile'),
+            icon: const Icon(Icons.badge),
+            label: const Text('Lihat Profil Mahasiswa'),
+          ),
         ],
       ),
     );
