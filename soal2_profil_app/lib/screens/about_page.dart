@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/profile.dart';
 
-// Halaman tentang saya
+// Halaman tentang saya dengan daftar keahlian
 class AboutPage extends StatelessWidget {
   final Profile profile;
 
@@ -11,8 +11,22 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Tentang Saya')),
-      body: Center(
-        child: Text('Profil: ${profile.nama} (${profile.nim})'),
+      body: ListView(
+        padding: const EdgeInsets.all(16.0),
+        children: [
+          Text(profile.nama, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+          const SizedBox(height: 16),
+          const Text('Keahlian & Minat:', style: TextStyle(fontWeight: FontWeight.bold)),
+          ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: profile.keahlian.length,
+            itemBuilder: (c, i) => ListTile(
+              leading: const Icon(Icons.check_circle_outline, color: Colors.green),
+              title: Text(profile.keahlian[i]),
+            ),
+          ),
+        ],
       ),
     );
   }
