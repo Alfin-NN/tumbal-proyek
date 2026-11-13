@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/profile.dart';
 
-// Halaman tentang saya dengan daftar keahlian
+// Halaman tentang saya dengan riwayat pendidikan
 class AboutPage extends StatelessWidget {
   final Profile profile;
 
@@ -24,6 +24,18 @@ class AboutPage extends StatelessWidget {
             itemBuilder: (c, i) => ListTile(
               leading: const Icon(Icons.check_circle_outline, color: Colors.green),
               title: Text(profile.keahlian[i]),
+            ),
+          ),
+          const SizedBox(height: 16),
+          const Text('Riwayat Pendidikan:', style: TextStyle(fontWeight: FontWeight.bold)),
+          ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: profile.riwayatPendidikan.length,
+            itemBuilder: (c, i) => ListTile(
+              leading: const Icon(Icons.school, color: Colors.blue),
+              title: Text(profile.riwayatPendidikan[i]['namaSekolah'] ?? ''),
+              subtitle: Text(profile.riwayatPendidikan[i]['jurusan'] ?? ''),
             ),
           ),
         ],
