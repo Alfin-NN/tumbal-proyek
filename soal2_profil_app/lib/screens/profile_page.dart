@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import '../models/profile.dart';
 import '../widgets/info_tile.dart';
+import 'about_page.dart';
 
-// Halaman profil mahasiswa
+// Halaman profil mahasiswa dengan menu drawer
 class ProfilePage extends StatefulWidget {
   final ValueNotifier<ThemeMode> themeNotifier;
 
@@ -32,30 +33,19 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Profil Mahasiswa')),
-      body: ListView(
-        padding: const EdgeInsets.all(16.0),
-        children: [
-          CircleAvatar(radius: 50, backgroundImage: const AssetImage('assets/images/profile.png')),
-          Text(profile.nama, textAlign: TextAlign.center, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-          const SizedBox(height: 16),
-          Card(
-            child: Column(
-              children: [
-                InfoTile(icon: Icons.email, label: 'Email', value: profile.email),
-                InfoTile(icon: Icons.phone, label: 'Nomor HP', value: profile.hp),
-              ],
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text(profile.nama),
+              accountEmail: Text(profile.email),
+              currentAccountPicture: const CircleAvatar(backgroundImage: AssetImage('assets/images/profile.png')),
             ),
-          ),
-          const SizedBox(height: 16),
-          Card(
-            child: Column(
-              children: [
-                InfoTile(icon: Icons.code, label: 'Keahlian Lain', value: 'Modder Game'),
-              ],
-            ),
-          ),
-        ],
+            ListTile(leading: const Icon(Icons.info), title: const Text('Tentang Saya'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (c) => AboutPage(profile: profile)))),
+          ],
+        ),
       ),
+      body: Center(child: Text(profile.nama)),
     );
   }
 }
