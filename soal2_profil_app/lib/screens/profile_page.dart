@@ -32,14 +32,29 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Profil Mahasiswa')),
-      body: Center(
-        child: Column(
-          children: [
-            const CircleAvatar(radius: 50, backgroundImage: AssetImage('assets/images/profile.png')),
-            Text(profile.nama, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-            Text(profile.nim),
-          ],
-        ),
+      body: ListView(
+        padding: const EdgeInsets.all(16.0),
+        children: [
+          CircleAvatar(radius: 50, backgroundImage: const AssetImage('assets/images/profile.png')),
+          Text(profile.nama, textAlign: TextAlign.center, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+          const SizedBox(height: 16),
+          Card(
+            child: Column(
+              children: [
+                InfoTile(icon: Icons.email, label: 'Email', value: profile.email),
+                InfoTile(icon: Icons.phone, label: 'Nomor HP', value: profile.hp),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          Card(
+            child: Column(
+              children: [
+                InfoTile(icon: Icons.code, label: 'Keahlian Lain', value: 'Modder Game'),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
